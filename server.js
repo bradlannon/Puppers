@@ -1,8 +1,8 @@
-express = require('express');
-app = express();
+var express = require('express');
+var serveStatic = require('serve-static');
+var app = express();
 
-app.use(express.static('dist'));
+app.use(serveStatic(__dirname + '/dist'));
+
 app.listen(8080);
-
-
-
+console.log('Started Express server');
