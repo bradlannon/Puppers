@@ -71,7 +71,7 @@ gulp.task('minify-html', function() {
 gulp.task('less', ['styles', 'bootstrap']);
 
 gulp.task('less:test', function() {
-  return gulp.src('./src/less/main.less')
+  return gulp.src('./src/less/styles.less')
     .pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
     .pipe(gulp.dest('./src/css'));
 });
@@ -83,8 +83,9 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('./dist/css')); //
 });
 
+
 gulp.task('bootstrap', function() {
-  gulp.src(['./src/css/bootstrap.min.css'])
+  gulp.src(['./src/less/bootstrap.min.css'])
     .pipe(concatCss("bootstrap.min.css"))
     .pipe(gulp.dest('./dist/css')); //
 });
