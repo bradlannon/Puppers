@@ -92,7 +92,7 @@ gulp.task('styles', function() {
 
 
 gulp.task('default', ['jshint','minify-html', 'less','browser-sync'], function () {
-  gulp.watch('./src/less/*.less', ['less'], reload);   // watching for file changes
-  gulp.watch('./src/html/*.html', ['minify-html'], reload);   // watching for file changes
-  gulp.watch('./src/js/*.js',['jshint'], reload);   // watching for file changes
+  gulp.watch('./src/less/*.less', ['less'], reload);   // watching for less file changes
+  gulp.watch('./src/html/*.html', ['minify-html'], reload);   // watching for html file changes
+  gulp.watch('./src/js/*.js',['jshint'], reload);   // watching for javascript file changes
 });
