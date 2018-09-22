@@ -1,23 +1,101 @@
+/**
+ * Created by Brad Lannon for the purposes of showcasing a javascript based Puppy Gallery project.
 
-  .imgGallery {
-    width: 200px; /* You can set the dimensions to whatever you want */
-    height: 200px;
+ http://www.github.com/bradlannon/puppers
+
+ */
+
+.inline-block{ 
+  display: inline-block; 
+}
+
+.center{ 
+  text-align: center; 
+}
+
+footer {
+  position:fixed;
+  height:80px;
+  bottom:0;
+  width:100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.dropdown-menu {
+background-color: lightgray;
+text-align: center;
+text-decoration: none;
+}
+
+.dropdown-menu .a:hover {
+text-decoration: none;
+font-weight: bolder;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media  (max-width: 767.98px) { 
+  #puppyImage {
+    width: 100%; 
+    height: 400px;
     object-fit: cover;
+  } 
+
+  video {
+    width: 100%;
+    height: 400px;
+    padding:10px;
   }
+ }
 
-  .inline-block{ display: inline-block; }
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  #puppyImage {
+    width: 300px; 
+    height: 250px;
+    object-fit: cover;
+  } 
 
-  .center{ text-align: center; }
-
-  footer {
-    position:fixed;
-    height:100px;
-    bottom:0;
-    width:100%;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  video {
+    width: 200px;
+    height: 200px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left: 5px;
+    padding-right: 5px
   }
+ }
 
-  footer p {
-    margin-bottom: .25rem;
+ // Large devices (tablets, 768px and up)
+ @media (min-width: 992px) and (max-width: 1199.98px) { 
+  #puppyImage {
+    width: 300px; 
+    height: 250px;
+    object-fit: cover;
+  } 
+
+  video {
+    width: 200px;
+    height: 200px;
+    padding:10px;
   }
+ }
+
+// Largeer devices (desktops, 992px and up)
+@media (min-width: 1200px)  { 
+  video {
+    width: 250px ;
+    height: 250px ;
+    padding: 20px 10px 20px 10px;
+    }
+    
+    #puppyImage {
+      width: 250px; 
+      height: 250px;
+      object-fit: cover;
+    } 
+ }

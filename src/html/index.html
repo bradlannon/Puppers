@@ -7,8 +7,9 @@
         <meta name="author" content="Brad Lannon">
         <link rel="icon" href="http://www.bradlannon.ca/lanteka/wp-content/themes/woodenGarden/img/icons/favicon.ico">
         <title>Puppers</title>
+        <link href="./css/styles.css" rel="stylesheet">  
         <link href="./css/bootstrap.min.css" rel="stylesheet">
-        <link href="./css/styles.css" rel="stylesheet">
+        <link href="./css/styles.css" rel="stylesheet">      
         <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"> <!-- Added lightbox for gallery links -->
     </head>
     <body>
@@ -16,23 +17,35 @@
         <header>
             <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container d-flex justify-content-between">
-                <a href="/" class="navbar-brand align-items-center">
+                <a href="/" class="navbar-brand align-items-center" title="Puppers">
                 <strong>Puppers</strong>
                 </a>
-                <button type="button" class="btn btn-primary" id="myWoof">Woof</button>
+
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="Choose between a Picture or Video Gallery">
+                      Pictures
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" class="test" title="Pictures" data-value="Pictures">Pictures</a></li>
+                      <li><a href="#" class="test" title="Videos" data-value="Videos">Videos</a></li>
+                    </ul>
+                  </div>
+
+                <button type="button" class="btn btn-primary" id="btnWoof" title="Click to add Puppers to the Gallery">Woof</button>
                 </button>
                 </div>
             </div>
         </header>
 
         <div class="container">
+            <div class="row text-center text-lg-left"><h1 class="display-4">Puppy Gallery</h1></div>
             <div class="row text-center text-lg-left" id="pupperGallery"></div>
-        </div>
 
         <footer class="text-muted fixed-bottom bg-dark">
           <div class="container">
             <p class="m-0 text-center text-white">Thank you for your time!</p>
-            <p class="m-0 text-center text-white">Brad Lannon <a href="https://github.com/bradlannon/Puppers/">Github page</a> </p>
+            <p class="m-0 text-center text-white">Brad Lannon <a href="https://github.com/bradlannon/Puppers/" title="Git Hub">Github page</a> </p>
           </div>
         </footer>
     
@@ -41,6 +54,7 @@
         <script src="./js/bootstrap.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+        
    </body
    ></html>
     

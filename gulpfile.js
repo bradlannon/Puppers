@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     minifyCss = require('gulp-minify-css'),
     less = require('gulp-less'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    path = require('path');
 
 /*
  *     Gulp Tasks
@@ -61,36 +62,37 @@ gulp.task('minify-html', function() {
     conditionals: true,
     spare:true
   };
-  return gulp.src('./src/index.html')
+  return gulp.src('./src/html/*')
     .pipe(minifyHTML(opts))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/html/'));
 });
 
-gulp.task('less', ['styles', 'bootstrap']);
+gulp.task('less', ['less:test','styles', 'bootstrap']);
 
-gulp.task('less:test', function() {
-  return gulp.src('./src/less/styles.less')
-    .pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
-    .pipe(gulp.dest('./src/css'));
+gulp.task('less:test', function () {
+  return gulp.src('./src/less/**/*.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('bootstrap', function() {
+  gulp.src(['./src/css/bootstrap.min.css'])
+    .pipe(concatCss("bootstrap.min.css"))
+    .pipe(gulp.dest('./dist/css')); //
 });
 
 gulp.task('styles', function() {
   gulp.src(['./src/css/*.css'])
     .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(concatCss("styles.css"))
-    .pipe(gulp.dest('./dist/css')); //
-});
-
-
-gulp.task('bootstrap', function() {
-  gulp.src(['./src/less/bootstrap.min.css'])
-    .pipe(concatCss("bootstrap.min.css"))
+    //.pipe(concatCss("styles.css"))
     .pipe(gulp.dest('./dist/css')); //
 });
 
 
 gulp.task('default', ['jshint','minify-html', 'less','browser-sync'], function () {
   gulp.watch('./src/less/*.less', ['less'], reload);   // watching for file changes
-  gulp.watch('./src/*.html', ['minify-html'], reload);   // watching for file changes
+  gulp.watch('./src/html/*.html', ['minify-html'], reload);   // watching for file changes
   gulp.watch('./src/js/*.js',['jshint'], reload);   // watching for file changes
 });
